@@ -5,8 +5,6 @@ import com.challengegs.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.Entity;
-
 @Service
 public class ProdutoService {
     @Autowired
@@ -14,5 +12,9 @@ public class ProdutoService {
 
     public void createProduto(Produto produto) {
         produtoRepository.save(produto);
+    }
+
+    public Produto getProdutoById(Integer idSchedule) {
+        return produtoRepository.findById(idSchedule).orElse(null);
     }
 }
